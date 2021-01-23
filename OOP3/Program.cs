@@ -14,11 +14,16 @@ namespace OOP3
             
 
             ICreditManager konutCreditManager = new KonutCreditManager();
+
+            ILoggerService databaseLoggerService = new DatabaseLoggerService();
+            ILoggerService fileLoggerService = new FileLoggerService();
+            
             BasvuruManager basvuruManager = new BasvuruManager();
+            basvuruManager.BasvuruYap(konutCreditManager, databaseLoggerService);
             
 
             List<ICreditManager> credits = new List<ICreditManager>() { ihtiyacCreditManager};
-            basvuruManager.KrediOnBilgilendirmesiYap(credits);
+            //basvuruManager.KrediOnBilgilendirmesiYap(credits);
 
         }
     }
